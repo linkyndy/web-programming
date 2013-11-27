@@ -1,0 +1,102 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML5</title>
+
+        <style type="text/css">
+            #div1 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
+        </style>
+    </head>
+
+    <body>
+        <table border="1">
+            <tr>
+                <td>Canvas</td>
+                <td>
+                    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">Your browser does not support the HTML5 canvas tag.</canvas>
+
+                    <script>
+                        var c=document.getElementById("myCanvas");
+                        var ctx=c.getContext("2d");
+                        ctx.beginPath();
+                        ctx.arc(95,50,40,0,2*Math.PI);
+                        ctx.stroke();
+                    </script>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Drag and drop</td>
+                <td>
+                    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <br>
+                    <img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69" alt="Image">
+
+
+                    <script>
+                        function allowDrop(ev) {
+                            ev.preventDefault();
+                        }
+
+                        function drag(ev) {
+                            ev.dataTransfer.setData("Text",ev.target.id);
+                        }
+
+                        function drop(ev) {
+                            ev.preventDefault();
+                            var data=ev.dataTransfer.getData("Text");
+                            ev.target.appendChild(document.getElementById(data));
+                        }
+                    </script>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Geolocation</td>
+                <td>
+                    <p id="demo">Click the button to get your coordinates:</p>
+                    <button onclick="getLocation()">Try It</button>
+
+                    <script>
+                        var x=document.getElementById("demo");
+
+                        function getLocation() {
+                            if (navigator.geolocation) {
+                                navigator.geolocation.getCurrentPosition(function (position) {
+                                    x.innerHTML="Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+                                });
+                            }
+                            else {
+                                x.innerHTML="Geolocation is not supported by this browser.";
+                            }
+                        }
+                    </script>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Video</td>
+                <td>
+                    <video width="320" height="240" controls>
+                        <source src="movie.mp4" type="video/mp4">
+                        <source src="movie.ogg" type="video/ogg">
+                        Your browser does not support the video tag.
+                    </video>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Audio</td>
+                <td>
+                    <audio controls>
+                        <source src="horse.ogg" type="audio/ogg">
+                        <source src="horse.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

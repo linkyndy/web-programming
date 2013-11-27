@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title>Textarea word capitalize</title>
+        <script>
+            // Do things after DOM load
+            window.onload = function() {
+                // Get <textarea>
+                textarea = document.getElementsByTagName("textarea")[0];
+
+                // Get <textarea> contents
+                content = new String(textarea.innerHTML);
+
+                // Get word Array from contents
+                words = content.split(" ");
+
+                // Build new Array
+                new_words = Array();
+                for (index in words) {
+                    // Capitalize each word
+                    new_words.push(words[index].charAt(0).toUpperCase() + words[index].slice(1));
+                }
+
+                // Build new content
+                new_content = new_words.join(" ");
+
+                // Assign content to <textarea>
+                textarea.innerHTML = new_content;
+            }
+        </script>
+    </head>
+
+    <body>
+        <textarea>This is a sample text.</textarea>
+    </body>
+</html>

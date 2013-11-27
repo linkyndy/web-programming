@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title>Dynamic form</title>
+        <script>
+            window.onload = function () {
+                body = document.getElementsByTagName("body")[0];
+                form = document.getElementsByTagName("form")[0];
+
+                form.bg.onchange = function () {
+                    body.style.backgroundColor = this.value;
+                }
+
+                form.text.onchange = function () {
+                    body.style.color = this.value;
+                }
+
+                form.link.onchange = function () {
+                    links = document.getElementsByTagName("a");
+                    for (var i = 0; i < links.length; i++) {
+                        links[i].style.color = this.value;
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <p>Random text with a <a href="#">random link</a></p>
+
+        <form>
+            <label for="bg">Background color</label>
+            <select name="bg" id="bg">
+                <option name="white" value="#FFF">White</option>
+                <option name="red" value="#F00">Red</option>
+                <option name="green" value="#0F0">Green</option>
+            </select>
+            <br>
+            <label for="text">Text color</label>
+            <select name="text" id="text">
+                <option name="white" value="#FFF">White</option>
+                <option name="red" value="#F00">Red</option>
+                <option name="green" value="#0F0">Green</option>
+            </select>
+            <br>
+            <label for="link">Link color</label>
+            <select name="link" id="link">
+                <option name="white" value="#FFF">White</option>
+                <option name="red" value="#F00">Red</option>
+                <option name="green" value="#0F0">Green</option>
+            </select>
+        </form>
+    </body>
+</html>
