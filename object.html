@@ -32,12 +32,15 @@
             car = new Car("Lamborghini", "Diablo", 2);
             another_car = new Car("Chevrolet", "Corvette", 2);
 
-            body = document.getElementsByTagName('body')[0];
 
-            p = document.createElement('p');
-            p.innerHTML = objShowProps(car, "Car") + "<br>" + objShowProps(another_car, "Car");
+            window.onload = function () {
+                body = document.getElementsByTagName('body')[0];
 
-            body.appendChild(p);
+                p = document.createElement('p');
+                p.innerHTML = objShowProps(car, "Car") + "<br>" + objShowProps(another_car, "Car");
+
+                body.appendChild(p);
+            }
         </script>
     </head>
 
