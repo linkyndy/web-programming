@@ -1,0 +1,67 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title>Harvard Events API</title>
+        <script src="harvard_events_api.js"></script>
+    </head>
+
+    <body>
+        <h2>Welcome to interactive Harvard Events API!</h2>
+        <h4>To interact with this API, click the 'Go!' button near the desired operation (and also fill in the required inputs)!</h4>
+
+        <table border="0">
+            <tr>
+                <td>List campuses</td>
+                <td><button onclick="campuses();">Go!</button></td>
+            </tr>
+            <tr>
+                <td>List all calendars</td>
+                <td><button onclick="calendars();">Go!</button></td>
+            </tr>
+            <tr>
+                <td>
+                    View calendars for campus:
+                    <input type="text" id="calendars_for_campus" />
+                </td>
+                <td><button onclick="calendars_for_campus();">Go!</button></td>
+            </tr>
+            <tr>
+                <td>
+                    View events for campus:
+                    <input type="text" id="events_for_campus" />
+                </td>
+                <td><button onclick="events_for_campus();">Go!</button></td>
+            </tr>
+            <tr>
+                <td>
+                    View events for campus on day:
+                    <input type="text" id="events_for_campus_on_day_campus" />
+                    <input type="text" id="events_for_campus_on_day_day" />
+                </td>
+                <td><button onclick="events_for_campus_on_day();">Go!</button></td>
+            </tr>
+            <tr>
+                <td>
+                    View events filtered by:
+                    <input type="text" id="events_filtered_by" />
+                </td>
+                <td><button onclick="events_filtered_by();">Go!</button></td>
+            </tr>
+            <tr>
+                <td>
+                    View events for campus filtered by tag:
+                    <input type="text" id="events_for_campus_filtered_by_tag_campus" />
+                    <input type="text" id="events_for_campus_filtered_by_tag_tag" />
+                </td>
+                <td><button onclick="events_for_campus_filtered_by_tag();">Go!</button></td>
+            </tr>
+        </table>
+
+        <hr/>
+
+        <pre id="response">
+            Click on the links above and you will see the XMLHttp response here.
+        </pre>
+    </body>
+</html>
